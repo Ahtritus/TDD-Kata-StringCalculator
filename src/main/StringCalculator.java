@@ -37,7 +37,7 @@ public class StringCalculator {
         //iterates through the list of numbers and calculates the sum
         for (String number : split_numbers) {
             int curr_number = Integer.parseInt(number);
-
+                        
             //checks if the input string has a negative number
             if (curr_number < 0) {
                 negative_numbers += curr_number + ",";
@@ -45,14 +45,21 @@ public class StringCalculator {
                 continue;
             }
             if (!flag) {
+                //skipping number over 1000
+                if (curr_number > 1000)
+                    continue;
+
                 sum += curr_number;
             }
         }
+        
+        //throw error if the input string has a negative number and also return the list of negative numbers
         if (flag) {
             negative_numbers = negative_numbers.substring(0, negative_numbers.length() - 1);
             throw new IllegalArgumentException("Negatives not allowed: " + negative_numbers);
         }
 
+        //returns the sum of the numbers
         return sum;
     }
 }

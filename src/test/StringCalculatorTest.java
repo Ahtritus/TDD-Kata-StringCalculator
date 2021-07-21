@@ -5,9 +5,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class StringCalculatorTest {
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
       org.junit.runner.JUnitCore.main("test.StringCalculatorTest");
-    }
+    }*/
 
     @Test
 	public void testEmptyString() {
@@ -53,5 +53,10 @@ public class StringCalculatorTest {
             } catch (IllegalArgumentException e){
                 assertEquals(e.getMessage(), "Negatives not allowed: -1,-2,-3");
             }
+    }
+
+    @Test
+    public void testNumberOverThousand(){
+        assertEquals("Numbers bigger than 1000 are ignored", 2, StringCalculator.Add("1001,\n2"));
     }
 }
