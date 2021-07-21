@@ -33,4 +33,25 @@ public class StringCalculatorTest {
     public void testDifferentDelimiter() {
         assertEquals("different delimiter input should return sum of those numbers", 9, StringCalculator.Add("//;\n3;2,4"));
     }
+
+    @Test
+    public void testNegativeNumver(){
+        try {
+                StringCalculator.Add("-1,2");
+            } catch (IllegalArgumentException e){
+                assertEquals(e.getMessage(), "Negatives not allowed: -1");
+            }
+
+        try {
+                StringCalculator.Add("//;\n-3;2,-4");
+            } catch (IllegalArgumentException e){
+                assertEquals(e.getMessage(), "Negatives not allowed: -3,-4");
+            }
+        
+        try {
+                StringCalculator.Add("-1,-2,-3");
+            } catch (IllegalArgumentException e){
+                assertEquals(e.getMessage(), "Negatives not allowed: -1,-2,-3");
+            }
+    }
 }

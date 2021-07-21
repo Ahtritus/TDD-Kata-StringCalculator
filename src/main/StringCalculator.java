@@ -31,10 +31,26 @@ public class StringCalculator {
 
         //initializes the sum of the numbers
         int sum = 0;
-
+        String negative_numbers = "";
+        boolean flag = false;
+        
         //iterates through the list of numbers and calculates the sum
         for (String number : split_numbers) {
-            sum += Integer.parseInt(number);
+            int curr_number = Integer.parseInt(number);
+
+            //checks if the input string has a negative number
+            if (curr_number < 0) {
+                negative_numbers += curr_number + ",";
+                flag = true;
+                continue;
+            }
+            if (!flag) {
+                sum += curr_number;
+            }
+        }
+        if (flag) {
+            negative_numbers = negative_numbers.substring(0, negative_numbers.length() - 1);
+            throw new IllegalArgumentException("Negatives not allowed: " + negative_numbers);
         }
 
         return sum;
