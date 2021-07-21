@@ -64,4 +64,9 @@ public class StringCalculatorTest {
     public void testAnyLengthDelimiter(){
         assertEquals("Delimiters can be of any length", 9, StringCalculator.Add("//***\n3***2***4"));
     }
+
+    @Test
+    public void testMultipleDelimiters() {
+        assertEquals("Multiple delimiters are allowed", 21, StringCalculator.Add("//*;!//;\n1*2;3!4\n5,6"));
+    }
 }

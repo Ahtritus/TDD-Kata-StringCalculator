@@ -14,17 +14,26 @@ public class StringCalculator {
         //checks if the input string has a different delimiter
         //input string has a different delimiter if it starts with "//"
         //single number input string will not be checked
-        if(numbers.length() > 2 && numbers.substring(0,2).equals("//")){
-            //storing the new delimiter
-            char current_delimiter = numbers.charAt(2);
+        if(numbers.length() > 2 && numbers.startsWith("//")){
+            int delim_end_index = numbers.indexOf('\n');
+            
+            //storing the new delimiters
+            String delimiters = "";
+            for(int i = 0; i < delim_end_index; i++){
+                //storing each unique delimiter
+                if(delimiters.indexOf(numbers.charAt(i)) == -1){
+                    delimiters += numbers.charAt(i);
+                }
+            }
 
-            //creates a new string, all_splitters, containing the new delimiter along with "," and "\n"
-            all_splitters = "[" + current_delimiter + ",\n]+";
+            //creates a new string, all_splitters, containing the new delimiters along with "," and "\n"
+            //the '+'' after [...] allows for multiple occurrences of the delimiters
+            all_splitters = "[" + delimiters + ",\n]+";
 
             //removes the delimiter input-format from the input string
-            numbers = numbers.substring(numbers.indexOf('\n')+1, numbers.length());
+            numbers = numbers.substring(delim_end_index+1, numbers.length());
         }
-
+        
         //splits the input string into a list of numbers
         //each number is separated by one of the characters in the all_splitters string
         String[] split_numbers = numbers.split(all_splitters);
