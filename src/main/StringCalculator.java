@@ -31,7 +31,7 @@ public class StringCalculator {
             delimiters = delimiters.replace("]", "");
             
             //creates a new string, all_splitters, containing the new delimiters along with "," and "\n"
-            //the '+'' after [...] allows for multiple occurrences of the delimiters
+            //the '+' after [...] allows for multiple occurrences of the delimiters
             all_splitters = "[" + delimiters + ",\n]+";
 
             //removes the delimiter input-format from the input string
