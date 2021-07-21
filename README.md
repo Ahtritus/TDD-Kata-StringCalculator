@@ -1,6 +1,6 @@
-## Getting Started
+## Onjective
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Technical assessment described at https://osherove.com/tdd-kata-1 for Incubyte.
 
 ## Folder Structure
 
