@@ -5,9 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class StringCalculatorTest {
-    /*public static void main(String args[]) {
-      org.junit.runner.JUnitCore.main("test.StringCalculatorTest");
-    }*/
 
     @Test
 	public void testEmptyString() {
@@ -62,11 +59,16 @@ public class StringCalculatorTest {
 
     @Test
     public void testAnyLengthDelimiter(){
-        assertEquals("Delimiters can be of any length", 9, StringCalculator.Add("//***\n3***2***4"));
+        assertEquals("Delimiters can be of any length", 9, StringCalculator.Add("//[***]\n3***2***4"));
     }
 
     @Test
     public void testMultipleDelimiters() {
-        assertEquals("Multiple delimiters are allowed", 21, StringCalculator.Add("//*;!//;\n1*2;3!4\n5,6"));
+        assertEquals("Multiple delimiters are allowed", 21, StringCalculator.Add("//[*][;][!]//;\n1*2;3!4\n5,6"));
+    }
+
+    @Test
+    public void testMultipleDelimitersOfAnyLength() {
+        assertEquals("Multiple delimiters are allowed and they can be of any length", 21, StringCalculator.Add("//[**][;;;][%%]//;;;\n1**2;;;3%%4\n5,6"));
     }
 }

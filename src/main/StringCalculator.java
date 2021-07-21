@@ -26,6 +26,10 @@ public class StringCalculator {
                 }
             }
 
+            //removes the '[' abd ']' that came with the delimiter-format
+            delimiters = delimiters.replace("[", "");
+            delimiters = delimiters.replace("]", "");
+            
             //creates a new string, all_splitters, containing the new delimiters along with "," and "\n"
             //the '+'' after [...] allows for multiple occurrences of the delimiters
             all_splitters = "[" + delimiters + ",\n]+";
