@@ -16,11 +16,16 @@ public class StringCalculatorTest {
 
     @Test
     public void testOneNumber() {
-        assertEquals("one number input should return that number", 6, StringCalculator.Add("6"));
+        assertEquals("one number input should return that number", 5, StringCalculator.Add("5"));
     }
 
     @Test
     public void testTwoNumbers() {
         assertEquals("two numbers input should return sum of those numbers", 5, StringCalculator.Add("3,2"));
+    }
+
+    @Test
+    public void testNewLine() {
+        assertEquals("new line input should return sum of those numbers", 9, StringCalculator.Add("3\n2,4"));
     }
 }

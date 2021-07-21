@@ -9,8 +9,7 @@ public class StringCalculator {
 
         //splits the input string into a list of numbers
         //each number is separated by a non digit character
-        String[] split_numbers = numbers.split("\\,");
-
+        String[] split_numbers = numbers.split("[,\n]+");
         //initializes the sum of the numbers
         int sum = 0;
 
@@ -18,6 +17,7 @@ public class StringCalculator {
         for (String number : split_numbers) {
             sum += Integer.parseInt(number);
         }
+
         return sum;
     }
 }
