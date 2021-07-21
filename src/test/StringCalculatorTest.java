@@ -57,6 +57,11 @@ public class StringCalculatorTest {
 
     @Test
     public void testNumberOverThousand(){
-        assertEquals("Numbers bigger than 1000 are ignored", 2, StringCalculator.Add("1001,\n2"));
+        assertEquals("Numbers bigger than 1000 are ignored", 2, StringCalculator.Add("1001,2"));
+    }
+
+    @Test
+    public void testAnyLengthDelimiter(){
+        assertEquals("Delimiters can be of any length", 9, StringCalculator.Add("//***\n3***2***4"));
     }
 }

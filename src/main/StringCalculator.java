@@ -21,8 +21,8 @@ public class StringCalculator {
             //creates a new string, all_splitters, containing the new delimiter along with "," and "\n"
             all_splitters = "[" + current_delimiter + ",\n]+";
 
-            //removes the delimiter input format from the input string
-            numbers = numbers.substring(4, numbers.length());
+            //removes the delimiter input-format from the input string
+            numbers = numbers.substring(numbers.indexOf('\n')+1, numbers.length());
         }
 
         //splits the input string into a list of numbers
@@ -37,7 +37,7 @@ public class StringCalculator {
         //iterates through the list of numbers and calculates the sum
         for (String number : split_numbers) {
             int curr_number = Integer.parseInt(number);
-                        
+
             //checks if the input string has a negative number
             if (curr_number < 0) {
                 negative_numbers += curr_number + ",";
