@@ -1,4 +1,4 @@
-## Onjective
+## Objective
 
 Technical assessment described at https://osherove.com/tdd-kata-1 for Incubyte.
 
