@@ -28,4 +28,9 @@ public class StringCalculatorTest {
     public void testNewLine() {
         assertEquals("new line input should return sum of those numbers", 9, StringCalculator.Add("3\n2,4"));
     }
+
+    @Test
+    public void testDifferentDelimiter() {
+        assertEquals("different delimiter input should return sum of those numbers", 9, StringCalculator.Add("//;\n3;2,4"));
+    }
 }
